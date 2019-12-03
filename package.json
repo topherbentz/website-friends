@@ -1,0 +1,25 @@
+{
+  "name": "website-friends",
+  "version": "1.0.0",
+  "description": "Charity Donations H2H",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "backendStart": "nodemon server.js",
+    "frontendStart": "npm run start --prefix development",
+    "dev": "concurrently \"npm run backendStart\" \"npm run frontendStart\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topherbentz/website-friends.git"
+  },
+  "author": "John Craig, Chris Bentz, Ali Harrod",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "nodemon": "^2.0.1"
+  }
+}
