@@ -9,9 +9,10 @@ class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            teamData:{},
+            teamData: {},
             matchupData: {},
-            matchupIDList: []
+            matchupIDList: [],
+            databaseValue: 'TEST'
         }
     }
 
@@ -82,15 +83,29 @@ class App extends React.Component{
         this.getMatchups();
     }
 
+    handleGetDataClick = async() => {
+        const response = await fetch('/some_route', {
+          method: 'GET'
+        });
+        const body = await response.text();
+
+        let jsonBody = JSON.parse(body);
+        this.setState({
+          databaseValue: jsonBody[0].home_team.team_id.toString()
+        });
+    }
+
     render(){
         return(
-            <div 
-                id='appContents' 
+            <div
+                id='appContents'
                 className='color-background_primary color-text_primary margin_horizontal4'
                 style={{overflowY:'hidden'}}>
-                <MatchupList 
-                    teamData = {this.state.teamData} 
-                    matchupData = {this.state.matchupData} 
+                <button onClick = {this.handleGetDataClick}>Get Data</button>
+                <h1>{this.state.databaseValue}</h1>
+                <MatchupList
+                    teamData = {this.state.teamData}
+                    matchupData = {this.state.matchupData}
                     matchupIDList = {this.state.matchupIDList}/>
             </div>
         )
