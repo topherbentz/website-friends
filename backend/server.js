@@ -9,17 +9,29 @@ const serverUrl = `mongodb+srv://${serverUser}:${serverPassword}@cluster0-dr3nv.
 const dbName = 'website-friends';
 let db;
 
-mongoClient.connect(serverUrl, (err, client) => {
+const port = process.env.PORT || 5000;
+
+mongoClient.connect(serverUrl, (err, database) => {
   if (err)  {
     return console.log(err);
   }
 
-  db = client.db(dbName);
+  db = database.db(dbName);
   router.listen(port, () => console.log(`Listening on port ${port}`));
 });
 
 const router = express();
-const port = process.env.PORT || 5000;
+
+
+router.get('/some_route', (req, res) => {
+  db.collection('matchup').find().toArray(function(err, results) {
+    if (err) {
+      console.log(err);
+    };
+
+    res.send(results);
+  });
+});
 
 if (process.env.NODE_ENV === "production") {
   router.use(express.static(path.resolve(__dirname, "../prod-frontend")));
@@ -28,14 +40,4 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname,"index.html"))
   });
 
-} else {
-  router.get('/', (req, res) => {
-    db.collection('matchup').find().toArray(function(err, results) {
-      if (err) {
-        console.log(err);
-      };
-
-      res.send(results);
-    });
-  });
 }
