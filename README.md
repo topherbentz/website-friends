@@ -10,7 +10,7 @@
 ## Installing Dependencies
 This boilerplate treats the React front-end, and Express back-end as separate applications. Because of this, if you would like to install dependencies specific to the front-end or back-end you must first navigate to their respective folders.
 
-##Version Control and Deployment
+## Version Control and Deployment
 
 (see Github Flow https://guides.github.com/introduction/flow/)
 - Create a feature branch off the master branch ‘named feature/name’
