@@ -91,7 +91,14 @@ class HomePage extends React.Component{
                 <MatchupList
                     teamData = {this.state.teamData}
                     matchupData = {this.state.matchupData}
-                    matchupIDList = {this.state.matchupIDList}/>
+                    matchupIDList = {this.state.matchupIDList}
+                    getLogo = {this.props.getLogo}
+                    getPrimaryColor = {this.props.getPrimaryColor}
+                    getSecondaryColor = {this.props.getSecondaryColor}
+                    getFontColor = {this.props.getFontColor}
+                    getCity = {this.props.getCity}
+                    getName = {this.props.getName}
+                />
             </div>
         )
     }

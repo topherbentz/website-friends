@@ -22,6 +22,12 @@ class MatchupList extends React.Component{
                                 teamLeftSport = {LeftTeam.sport}
                                 teamRight = {RightTeam.team}
                                 teamRightSport = {RightTeam.sport}
+                                getLogo = {this.props.getLogo}
+                                getPrimaryColor = {this.props.getPrimaryColor}
+                                getSecondaryColor = {this.props.getSecondaryColor}
+                                getFontColor = {this.props.getFontColor}
+                                getCity = {this.props.getCity}
+                                getName = {this.props.getName}
                             />
                         </div>
                     )
