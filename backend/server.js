@@ -23,7 +23,7 @@ mongoClient.connect(serverUrl, (err, database) => {
 const router = express();
 
 
-router.get('/some_route', (req, res) => {
+router.get('/matchups', (req, res) => {
   db.collection('matchup').find().toArray(function(err, results) {
     if (err) {
       console.log(err);
@@ -35,7 +35,7 @@ router.get('/some_route', (req, res) => {
 
 if (process.env.NODE_ENV === "production") {
   router.use(express.static(path.resolve(__dirname, "../prod-frontend")));
-  
+
   router.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, "../prod-frontend","index.html"))
   });

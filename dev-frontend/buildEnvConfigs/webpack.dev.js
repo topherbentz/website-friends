@@ -7,7 +7,7 @@ module.exports = merge(common, {
     devServer: {
         historyApiFallback: true,
         proxy: {
-            '/some_route': 'http://localhost:5000'
+            '/matchups': 'http://localhost:5000'
         }
     }
 });
