@@ -11,7 +11,6 @@ class HomePage extends React.Component{
         }
 
         this.setMatchups = this.setMatchups.bind(this);
-        this.getMatchups = this.getMatchups.bind(this);
     }
 
     componentDidMount() {
@@ -19,7 +18,7 @@ class HomePage extends React.Component{
     }
 
     getMatchups = async() => {
-        const response = await fetch('/matchups', {
+        const response = await fetch('/get_matchups', {
           method: 'GET'
         });
         const body = await response.text();
@@ -51,8 +50,12 @@ class HomePage extends React.Component{
                 id='appContents'
                 className='color-background_primary color-text_primary margin_horizontal4'
                 style={{overflowY:'hidden'}}>
-                <button onClick = {this.getMatchups}>Get Matchup</button>
-                <MatchupList matchups = {this.state.matchups} />
+                <button 
+                  onClick = {this.getMatchups}>Get Matchup
+                </button>
+                <MatchupList 
+                  matchups = {this.state.matchups}
+                />
             </div>
         )
     }

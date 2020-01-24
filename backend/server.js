@@ -23,7 +23,7 @@ mongoClient.connect(serverUrl, (err, database) => {
 const router = express();
 
 
-router.get('/matchups', (req, res) => {
+router.get('/get_matchups', (req, res) => {
   db.collection('matchup').find().toArray(function(err, results) {
     if (err) {
       console.log(err);
