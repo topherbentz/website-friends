@@ -13,6 +13,7 @@ import * as NHLLogos from './comps/NHLlogos'
 import * as NBALogos from './comps/NBAlogos'
 
 import HomePage from './pageComps/homePage.js'
+import MatchupPage from './pageComps/matchupPage.js'
 
 class App extends React.Component{
 
@@ -154,17 +155,21 @@ class App extends React.Component{
             <Router>
                 <Switch>
                     <Route path='/matchup'>
-                        <h1>Matchup Detail Comp</h1>
+                        <MatchupPage
+                            getPrimaryColor = {this.getPrimaryColor}
+                            getCity = {this.getCity}
+                            getName = {this.getName}
+                        />
                     </Route>
                     <Route exact path='/'>
                         <HomePage
-                        getLogo = {this.getLogo}
-                        getPrimaryColor = {this.getPrimaryColor}
-                        getSecondaryColor = {this.getSecondaryColor}
-                        getFontColor = {this.getFontColor}
-                        getCity = {this.getCity}
-                        getName = {this.getName}
-                    />
+                            getLogo = {this.getLogo}
+                            getPrimaryColor = {this.getPrimaryColor}
+                            getSecondaryColor = {this.getSecondaryColor}
+                            getFontColor = {this.getFontColor}
+                            getCity = {this.getCity}
+                            getName = {this.getName}
+                        />
                     </Route>
                     <Route path='/'>
                         <h1>404 Here</h1>
