@@ -1,5 +1,7 @@
 var React = require('react')
 
+import MoneyBar from '../comps/moneyBar.js'
+
 class MatchupPage extends React.Component{
 
     constructor(props) {
@@ -19,7 +21,7 @@ class MatchupPage extends React.Component{
                 city:'',
                 name:''
             },
-            totalAmount:0
+            totalAmount:1
         }
     }
 
@@ -31,13 +33,13 @@ class MatchupPage extends React.Component{
             sport:'Hockey',
             leftTeam:{
                 team:'TOR',
-                amount: 100
+                amount: 10
             },
             rightTeam:{
                 team:'BOS',
-                amount: 50
+                amount: 90
             },
-            totalAmount: 100+50
+            totalAmount: 45+55
         })
     }
 
@@ -49,16 +51,29 @@ class MatchupPage extends React.Component{
         this.getMatchupDetails();
     }
 
-    getHeight = (team) =>{
-        var num;
-        if(team == 'left'){
-            num = Math.floor((this.state.leftTeam.amount/this.state.totalAmount)*100)
-        }else if(team == 'right'){
-            num = Math.floor((this.state.rightTeam.amount/this.state.totalAmount)*100)
+    getHeight = (amount, graphH) =>{
+        var pct;
+
+        pct = amount*100/this.state.totalAmount
+
+        if(pct < 50 && pct%10 == 5){
+            pct = pct-5
         }
-        console.log(team)
-        console.log(num)
-        return(num.toString()+'%')
+        if (pct < 20 && pct != 0){
+            pct = 20
+        }
+        if (pct > 80 && pct != 100){
+            pct = 80
+        }
+
+        pct = Math.round(pct/10)*10
+        console.log(pct)
+
+        if(graphH == false){
+            pct = 100-pct
+        }
+
+        return(pct.toString()+'%')
     }
 
 
@@ -72,50 +87,26 @@ class MatchupPage extends React.Component{
                     id='defaultMatchupDetails'
                     className='flex-row margin margin_vertical100 flex_stretch'
                     style={{'height':'600px'}}>
-                    <div
-                        id='leftTeamMatchupDetails'
-                        className='flex-column, flex_SpaceEvenly'
-                        style={{'flex':4}}>
-                        <div
-                            style={{'flex':3,textAlign:'center'}}>
-                            <h1>{this.props.getCity(this.state.leftTeam.team, this.state.sport)}</h1>
-                            <h2>{this.props.getName(this.state.leftTeam.team, this.state.sport)}</h2>
-                        </div>
-                        <div
-                            className='flex_stretch'
-                            style={{'flex':7}}>
-                            <div
-                                style={{'height':this.getHeight('right')}}>
-                            </div>
-                            <div
-                                style={{'height':this.getHeight('left') , 'backgroundColor': this.props.getPrimaryColor(this.state.leftTeam.team, this.state.sport)}}>
-                            </div>
-                        </div>
-                    </div>
+                    <MoneyBar
+                        getCity = {this.props.getCity}
+                        getName = {this.props.getName}
+                        getPrimaryColor = {this.props.getPrimaryColor}
+                        getHeight = {this.getHeight}
+                        teamData = {this.state.leftTeam}
+                        sport = {this.state.sport}
+                    />
                     <div
                         id='buttonInMiddle'
                         style={{'flex':2}}>
                     </div>
-                    <div
-                        id='rightTeamMatchupDetails'
-                        className='flex-column, flex_SpaceEvenly'
-                        style={{'flex':4}}>
-                        <div
-                            style={{'flex':3,textAlign:'center'}}>
-                            <h1>{this.props.getCity(this.state.rightTeam.team, this.state.sport)}</h1>
-                            <h2>{this.props.getName(this.state.rightTeam.team, this.state.sport)}</h2>
-                        </div>
-                        <div
-                            className='flex_stretch'
-                            style={{'flex':7}}>
-                            <div
-                                style={{'height':this.getHeight('left')}}>
-                            </div>
-                            <div
-                                style={{'height':this.getHeight('right') , 'backgroundColor': this.props.getPrimaryColor(this.state.rightTeam.team, this.state.sport)}}>
-                            </div>
-                        </div>
-                    </div>
+                    <MoneyBar
+                        getCity = {this.props.getCity}
+                        getName = {this.props.getName}
+                        getPrimaryColor = {this.props.getPrimaryColor}
+                        getHeight = {this.getHeight}
+                        teamData = {this.state.rightTeam}
+                        sport = {this.state.sport}
+                    />
                 </div>
             </div>
         )
