@@ -97,7 +97,16 @@ class MatchupPage extends React.Component{
                     />
                     <div
                         id='buttonInMiddle'
-                        style={{'flex':2}}>
+                        className='flex-column flex_spaceCenter'
+                        style={{'flex':3}}>
+                        <button
+                            className='hoverButton margin25'>
+                            Donate Now
+                        </button>
+                        <button
+                            className='hoverButton margin25'>
+                            Share Matchup
+                        </button>
                     </div>
                     <MoneyBar
                         getCity = {this.props.getCity}

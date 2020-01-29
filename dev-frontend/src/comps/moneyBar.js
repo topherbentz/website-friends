@@ -31,9 +31,11 @@ class MoneyBar extends React.Component{
                     className='flex_stretch'
                     style={{'flex':7}}>
                     <MoneySlideUp
-                        style={{'height':this.props.getHeight(this.props.teamData.amount, false), 'textAlign':'center', position:'relative','marginBottom':'10px'}}>
+                        style={{'height':this.props.getHeight(this.props.teamData.amount, false), 'textAlign':'center', position:'relative'}}
+                        className>
                         <CountUp
-                            style={{'font-size': '1.5rem', 'font-weight': '600', 'font-family': 'Raleway, sans-serif'}}
+                            style={{'fontSize': '1.5rem', 'fontWeight': '600', 'fontFamily': 'Raleway, sans-serif'}}
+                            className='margin_vertical25'
                             start={0}
                             end={this.props.teamData.amount}
                             duration={2}
