@@ -28,7 +28,6 @@ class MatchupList extends React.Component{
             })}
           </div>
         )
-
       // Need to create some kind of "Loading" component
       } else {
         return (
