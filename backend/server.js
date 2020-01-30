@@ -23,12 +23,20 @@ mongoClient.connect(serverUrl, (err, database) => {
 const router = express();
 
 
-router.get('/matchups', (req, res) => {
-  db.collection('matchup').find().toArray(function(err, results) {
+router.get('/get_matchups*', (req, res) => {
+  console.log("Query:");
+  console.log(req.query);
+  db.collection('matchup')
+  .find({
+    "home_team.team_id": { $regex : `^${req.query.city}.*$`, $options: 'i' },
+    "sport_id": { $regex: `^${req.query.sport}.*$`, $options: 'i' }
+  })
+  .toArray(function(err, results) {
     if (err) {
       console.log(err);
     };
 
+    console.log(results);
     res.send(results);
   });
 });

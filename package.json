@@ -27,5 +27,8 @@
   "homepage": "https://github.com/jhonof/ERN-Heroku-BuildPack#readme",
   "devDependencies": {
     "concurrently": "^5.0.0"
+  },
+  "dependencies": {
+    "query-string": "^6.10.1"
   }
 }
