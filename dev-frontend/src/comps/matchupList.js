@@ -12,10 +12,12 @@ class MatchupList extends React.Component{
 
       if (this.props.matchups.length > 0) {
         return (
-          <div id='matchupArea'>
+          <div 
+            id='matchupArea'>
             {this.props.matchups.map((matchup) => {
               return (
-                <div key={matchup.id}>
+                <div 
+                  key={matchup.id}>
                   <MatchupCard
                     teamLeft = {matchup.teams.homeTeam}
                     teamRight = {matchup.teams.awayTeam}
@@ -26,11 +28,10 @@ class MatchupList extends React.Component{
             })}
           </div>
         )
-
       // Need to create some kind of "Loading" component
       } else {
         return (
-          <div>Loading...</div>
+          <h2>Loading...</h2>
         )
       }
     }

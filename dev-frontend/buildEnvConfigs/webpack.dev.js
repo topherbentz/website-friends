@@ -7,7 +7,11 @@ module.exports = merge(common, {
     devServer: {
         historyApiFallback: true,
         proxy: {
+<<<<<<< HEAD
             '/get_matchups*': 'http://localhost:5000'
+=======
+            '/get_matchups': 'http://localhost:5000'
+>>>>>>> master
         }
     }
 });

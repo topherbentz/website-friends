@@ -14,8 +14,11 @@ class HomePage extends React.Component{
         }
 
         this.setMatchups = this.setMatchups.bind(this);
+<<<<<<< HEAD
         this.handleCityFilter = this.handleCityFilter.bind(this);
         this.handleSportFilter = this.handleSportFilter.bind(this);
+=======
+>>>>>>> master
     }
 
     componentDidMount() {
@@ -23,6 +26,7 @@ class HomePage extends React.Component{
     }
 
     getMatchups = async() => {
+<<<<<<< HEAD
         let queryInputs = {
         "city" : this.state.cityFilter,
         "sport" : this.state.sportFilter
@@ -37,6 +41,13 @@ class HomePage extends React.Component{
       const body = await response.text();
 
       this.setMatchups(JSON.parse(body));
+=======
+        const response = await fetch('/get_matchups', {
+          method: 'GET'
+        });
+        const body = await response.text();
+        this.setMatchups(JSON.parse(body));
+>>>>>>> master
     }
 
     setMatchups(matchups) {
@@ -50,6 +61,10 @@ class HomePage extends React.Component{
             awayTeam: matchups[i].away_team.team_id
           },
           sport: matchups[i].sport_id
+        });
+
+        this.setState({
+          matchups: newMatchups
         });
       }
 
@@ -78,6 +93,7 @@ class HomePage extends React.Component{
                 id='appContents'
                 className='color-background_primary color-text_primary margin_horizontal4'
                 style={{overflowY:'hidden'}}>
+<<<<<<< HEAD
                 <div>
                   <label>City Filter</label>
                   <input value = {this.state.cityFilter} onChange = {this.handleCityFilter} />
@@ -85,6 +101,14 @@ class HomePage extends React.Component{
                   <input value = {this.state.sportFilter} onChange = {this.handleSportFilter} />
                 </div>
                 <MatchupList matchups = {this.state.matchups} />
+=======
+                <button 
+                  onClick = {this.getMatchups}>Get Matchup
+                </button>
+                <MatchupList 
+                  matchups = {this.state.matchups}
+                />
+>>>>>>> master
             </div>
         )
     }
