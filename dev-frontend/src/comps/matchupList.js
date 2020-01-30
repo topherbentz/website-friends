@@ -4,30 +4,37 @@ import MatchupCard from './matchupCard.js'
 
 
 class MatchupList extends React.Component{
-    render(){
-        return(
-            <div
-                id='matchupArea'>
-                {this.props.matchupIDList.map((value, index) => {
-                    var LeftTeamID = this.props.matchupData[value].leftTeam;
-                    var RightTeamID = this.props.matchupData[value].rightTeam;
-                    var LeftTeam = this.props.teamData[LeftTeamID];
-                    var RightTeam = this.props.teamData[RightTeamID];
+    constructor(props) {
+      super(props);
+    }
 
-                    return(
-                        <div 
-                            key={value}>
-                            <MatchupCard
-                                teamLeft = {LeftTeam.team}
-                                teamLeftSport = {LeftTeam.sport}
-                                teamRight = {RightTeam.team}
-                                teamRightSport = {RightTeam.sport}
-                            />
-                        </div>
-                    )
-                })}
-            </div>
+    render() {
+
+      if (this.props.matchups.length > 0) {
+        return (
+          <div 
+            id='matchupArea'>
+            {this.props.matchups.map((matchup) => {
+              return (
+                <div 
+                  key={matchup.id}>
+                  <MatchupCard
+                    teamLeft = {matchup.teams.homeTeam}
+                    teamRight = {matchup.teams.awayTeam}
+                    sport = {matchup.sport}
+                  />
+                </div>
+              )
+            })}
+          </div>
         )
+
+      // Need to create some kind of "Loading" component
+      } else {
+        return (
+          <h2>Loading...</h2>
+        )
+      }
     }
 }
 
