@@ -55,6 +55,12 @@ class HomePage extends React.Component{
                 </button>
                 <MatchupList 
                   matchups = {this.state.matchups}
+                  getPrimaryColor = {this.props.getPrimaryColor}
+                  getSecondaryColor = {this.props.getSecondaryColor}
+                  getLogo = {this.props.getLogo}
+                  getCity = {this.props.getCity}
+                  getName = {this.props.getName}
+                  getFontColor = {this.props.getFontColor}
                 />
             </div>
         )

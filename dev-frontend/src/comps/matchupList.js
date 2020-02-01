@@ -19,6 +19,12 @@ class MatchupList extends React.Component{
                 <div 
                   key={matchup.id}>
                   <MatchupCard
+                    getPrimaryColor = {this.props.getPrimaryColor}
+                    getSecondaryColor = {this.props.getSecondaryColor}
+                    getLogo = {this.props.getLogo}
+                    getCity = {this.props.getCity}
+                    getName = {this.props.getName}
+                    getFontColor = {this.props.getFontColor}
                     teamLeft = {matchup.teams.homeTeam}
                     teamRight = {matchup.teams.awayTeam}
                     sport = {matchup.sport}
