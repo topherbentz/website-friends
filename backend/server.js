@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const mongoClient = require('mongodb').MongoClient;
+const sanitize = require('mongo-sanitize');
 
 const serverUser = 'websiteFriendsUser';
 const serverPassword = 'iXvVA4SGSq4L0jMp';
@@ -23,8 +23,19 @@ mongoClient.connect(serverUrl, (err, database) => {
 const router = express();
 
 
-router.get('/get_matchups', (req, res) => {
-  db.collection('matchup').find().toArray(function(err, results) {
+router.get('/get_matchups*', (req, res) => {
+  let city = sanitize(req.query.city);
+  let sport = sanitize(req.query.sport);
+  
+  db.collection('matchup')
+  .find({ $and : [
+    { $or : [
+      { "home_team.team_id": { $regex : `^${city}.*$`, $options: 'i' } },
+      { "away_team.team_id": { $regex : `^${city}.*$`, $options: 'i' } }
+    ]},
+    {"sport_id": { $regex: `^${sport}.*$`, $options: 'i' } }
+  ]})
+  .toArray(function(err, results) {
     if (err) {
       console.log(err);
     };

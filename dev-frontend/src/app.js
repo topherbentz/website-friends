@@ -95,7 +95,7 @@ class App extends React.Component{
             return(<Logo/>)
         }
     }
-    
+
     getPrimaryColor = (team,sport) => {
         if (sport == "Hockey"){
             return(this.NHLLogoList[team].Primary_Color)

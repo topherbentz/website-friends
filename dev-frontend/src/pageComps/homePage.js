@@ -1,4 +1,5 @@
 var React = require('react')
+const QueryString = require('querystring')
 
 import MatchupList from '../comps/matchupList.js'
 
@@ -7,10 +8,10 @@ class HomePage extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            matchups: []
+            matchups: [],
+            cityFilter: "",
+            sportFilter: ""
         }
-
-        this.setMatchups = this.setMatchups.bind(this);
     }
 
     componentDidMount() {
@@ -18,14 +19,23 @@ class HomePage extends React.Component{
     }
 
     getMatchups = async() => {
-        const response = await fetch('/get_matchups', {
-          method: 'GET'
-        });
-        const body = await response.text();
-        this.setMatchups(JSON.parse(body));
+      let queryInputs = {
+        "city" : this.state.cityFilter,
+        "sport" : this.state.sportFilter
+      };
+
+      let queryString = QueryString.encode(queryInputs);
+
+      let url = `/get_matchups?${queryString}`;
+      const response = await fetch(url, {
+        method: 'GET',
+      });
+      const body = await response.text();
+
+      this.setMatchups(JSON.parse(body));
     }
 
-    setMatchups(matchups) {
+    setMatchups = matchups => {
       let newMatchups = [];
 
       for (let i = 0; i < matchups.length; i++) {
@@ -42,6 +52,28 @@ class HomePage extends React.Component{
           matchups: newMatchups
         });
       }
+
+      this.setState({
+        matchups: newMatchups
+      });
+    }
+
+    handleCityFilter = e => {
+      this.setState(
+        {
+          cityFilter: e.target.value
+        },
+        this.getMatchups
+      );
+    }
+
+    handleSportFilter = e => {
+      this.setState(
+        {
+          sportFilter: e.target.value
+        },
+        this.getMatchups
+      );
     }
 
     render(){
@@ -50,17 +82,24 @@ class HomePage extends React.Component{
                 id='appContents'
                 className='color-background_primary color-text_primary margin_horizontal4'
                 style={{overflowY:'hidden'}}>
-                <button 
-                  onClick = {this.getMatchups}>Get Matchup
-                </button>
-                <MatchupList 
-                  matchups = {this.state.matchups}
-                  getPrimaryColor = {this.props.getPrimaryColor}
-                  getSecondaryColor = {this.props.getSecondaryColor}
-                  getLogo = {this.props.getLogo}
-                  getCity = {this.props.getCity}
-                  getName = {this.props.getName}
-                  getFontColor = {this.props.getFontColor}
+                <div>
+                  <label>City Filter</label>
+                  <input
+                      onChange = {this.handleCityFilter}
+                  />
+                  <label>Sport Filter</label>
+                  <input
+                      onChange = {this.handleSportFilter}
+                  />
+                </div>
+                <MatchupList
+                    matchups = {this.state.matchups}
+                    getLogo = {this.props.getLogo}
+                    getPrimaryColor = {this.props.getPrimaryColor}
+                    getSecondaryColor = {this.props.getSecondaryColor}
+                    getFontColor = {this.props.getFontColor}
+                    getCity = {this.props.getCity}
+                    getName = {this.props.getName}
                 />
             </div>
         )
