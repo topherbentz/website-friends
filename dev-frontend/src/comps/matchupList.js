@@ -12,16 +12,20 @@ class MatchupList extends React.Component{
 
       if (this.props.matchups.length > 0) {
         return (
-          <div 
+          <div
             id='matchupArea'>
             {this.props.matchups.map((matchup) => {
               return (
-                <div 
+                <div
                   key={matchup.id}>
                   <MatchupCard
-                    teamLeft = {matchup.teams.homeTeam}
-                    teamRight = {matchup.teams.awayTeam}
-                    sport = {matchup.sport}
+                    matchup = {matchup}
+                    getLogo = {this.props.getLogo}
+                    getPrimaryColor = {this.props.getPrimaryColor}
+                    getSecondaryColor = {this.props.getSecondaryColor}
+                    getFontColor = {this.props.getFontColor}
+                    getCity = {this.props.getCity}
+                    getName = {this.props.getName}
                   />
                 </div>
               )

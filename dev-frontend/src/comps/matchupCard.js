@@ -10,19 +10,19 @@ class MatchupCard extends React.Component{
                 <div
                     id='teamLeft'
                     className = 'flex-row flex_spaceEvenly flex_center padding_horizontal4 padding_vertical25'
-                    style = {{background:this.props.getPrimaryColor(this.props.teamLeft, this.props.sport), flex:4}}>
+                    style = {{background:this.props.getPrimaryColor(this.props.matchup.teams.homeTeam, this.props.matchup.sport), flex:4}}>
                     <div
                         id='teamLeftLogo'
                         className='teamLogo teamLogo_Radius'
-                        style={{background:this.props.getSecondaryColor(this.props.teamLeft, this.props.sport)}}>
-                        {this.props.getLogo(this.props.teamLeft, this.props.sport)}
+                        style={{background:this.props.getSecondaryColor(this.props.matchup.teams.homeTeam, this.props.matchup.sport)}}>
+                        {this.props.getLogo(this.props.matchup.teams.homeTeam, this.props.matchup.sport)}
                     </div>
                     <div
                         id='teamLeftText'
                         className='rcorners10 flex_column padding10 margin_horizontal8'
-                        style={{background:this.props.getSecondaryColor(this.props.teamLeft, this.props.sport), color:this.props.getFontColor(this.props.teamLeft, this.props.sport), textAlign:'center', width:'200px'}}>
-                        <h1>{this.props.getCity(this.props.teamLeft, this.props.sport)}</h1>
-                        <h2>{this.props.getName(this.props.teamLeft, this.props.sport)}</h2>
+                        style={{background:this.props.getSecondaryColor(this.props.matchup.teams.homeTeam, this.props.matchup.sport), color:this.props.getFontColor(this.props.matchup.teams.homeTeam, this.props.matchup.sport), textAlign:'center', width:'200px'}}>
+                        <h1>{this.props.getCity(this.props.matchup.teams.homeTeam, this.props.matchup.sport)}</h1>
+                        <h2>{this.props.getName(this.props.matchup.teams.homeTeam, this.props.matchup.sport)}</h2>
                     </div>
                 </div>
                 <div
@@ -38,19 +38,19 @@ class MatchupCard extends React.Component{
                 <div
                     id='teamRight'
                     className = 'flex-row flex_spaceEvenly flex_center padding_horizontal4 padding_vertical25'
-                    style = {{background:this.props.getPrimaryColor(this.props.teamRight, this.props.sport), flex:4}}>
+                    style = {{background:this.props.getPrimaryColor(this.props.matchup.teams.awayTeam, this.props.matchup.sport), flex:4}}>
                     <div
                         id='teamRightText'
                         className='rcorners10 flex_column padding10 margin_horizontal8'
-                        style={{background:this.props.getSecondaryColor(this.props.teamRight, this.props.sport), color:this.props.getFontColor(this.props.teamRight, this.props.sport), textAlign:'center', width:'200px'}}>
-                        <h1>{this.props.getCity(this.props.teamRight, this.props.sport)}</h1>
-                        <h2>{this.props.getName(this.props.teamRight, this.props.sport)}</h2>
+                        style={{background:this.props.getSecondaryColor(this.props.matchup.teams.awayTeam, this.props.matchup.sport), color:this.props.getFontColor(this.props.matchup.teams.awayTeam, this.props.matchup.sport), textAlign:'center', width:'200px'}}>
+                        <h1>{this.props.getCity(this.props.matchup.teams.awayTeam, this.props.matchup.sport)}</h1>
+                        <h2>{this.props.getName(this.props.matchup.teams.awayTeam, this.props.matchup.sport)}</h2>
                     </div>
                     <div
                         id='teamRightLogo'
                         className='teamLogo teamLogo_Radius'
-                        style={{background:this.props.getSecondaryColor(this.props.teamRight, this.props.sport)}}>
-                        {this.props.getLogo(this.props.teamRight, this.props.sport)}
+                        style={{background:this.props.getSecondaryColor(this.props.matchup.teams.awayTeam, this.props.matchup.sport)}}>
+                        {this.props.getLogo(this.props.matchup.teams.awayTeam, this.props.matchup.sport)}
                     </div>
                 </div>
             </div>
