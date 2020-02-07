@@ -1,6 +1,7 @@
 var React = require('react')
 
 import MoneyBar from '../comps/moneyBar.js'
+import Modal from '../comps/modal.js'
 
 class MatchupPage extends React.Component{
 
@@ -21,7 +22,11 @@ class MatchupPage extends React.Component{
                 city:'',
                 name:''
             },
-            totalAmount:1
+            totalAmount:1,
+            modal:'',
+            display:'none',
+            show:false,
+            animationStop:false
         }
     }
 
@@ -67,13 +72,30 @@ class MatchupPage extends React.Component{
         }
 
         pct = Math.round(pct/10)*10
-        console.log(pct)
 
         if(graphH == false){
             pct = 100-pct
         }
 
         return(pct.toString()+'%')
+    }
+
+    handleClose = () =>{
+        this.setState({
+            modal:'',
+            display:'none',
+            show:false
+        })
+    }
+
+    handleOpen = (event) =>{
+        const id = event.target.id;
+        this.setState({
+            modal:id,
+            display:'block',
+            show:true,
+            animationStop:true
+        })
     }
 
 
@@ -94,17 +116,28 @@ class MatchupPage extends React.Component{
                         getHeight = {this.getHeight}
                         teamData = {this.state.leftTeam}
                         sport = {this.state.sport}
+                        animationStop = {this.state.animationStop}
                     />
                     <div
-                        id='buttonInMiddle'
+                        id='buttonsInMiddle'
                         className='flex-column flex_spaceCenter'
                         style={{'flex':3}}>
                         <button
-                            className='hoverButton margin25'>
+                            id='donateNow'
+                            className='hoverButton margin25'
+                            onClick={this.handleOpen}>
                             Donate Now
                         </button>
                         <button
-                            className='hoverButton margin25'>
+                            id='donateNow'
+                            className='hoverButton margin25'
+                            onClick={this.handleOpen}>
+                            Pledge to Donate
+                        </button>
+                        <button
+                            id='donateNow'
+                            className='hoverButton margin25'
+                            onClick={this.handleOpen}>
                             Share Matchup
                         </button>
                     </div>
@@ -115,6 +148,12 @@ class MatchupPage extends React.Component{
                         getHeight = {this.getHeight}
                         teamData = {this.state.rightTeam}
                         sport = {this.state.sport}
+                        animationStop = {this.state.animationStop}
+                    />
+                    <Modal
+                        show = {this.state.show}
+                        modalDisplay = {this.state.display}
+                        handleClose = {this.handleClose}
                     />
                 </div>
             </div>
