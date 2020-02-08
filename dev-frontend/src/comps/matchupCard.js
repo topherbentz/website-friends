@@ -5,7 +5,7 @@ class MatchupCard extends React.Component{
         return(
             <div
                 id='matchupCard'
-                className = 'flex-row container flex_stretch flex_spaceCenter rcorner10 margin_vertical25 hoverButton'
+                className = 'flex-row container flex_stretch flex_spaceCenter rcorner10 margin_vertical25 hoverButton color-background_primary'
                 style = {{height:'300px'}}>
                 <div
                     id='teamLeft'

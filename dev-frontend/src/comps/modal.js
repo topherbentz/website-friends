@@ -12,7 +12,7 @@ class Modal extends React.Component{
         <Modal 
             className='modal'>
             <section 
-                className='modal-main'>
+                className='modal-main color-background_primary'>
                 {this.props.children}
                 <button
                     onClick={this.props.handleClose}>

@@ -1,6 +1,7 @@
 var React = require('react')
 
 import MatchupCard from './matchupCard.js'
+import LoadingComp from './loadingComp.js'
 
 
 class MatchupList extends React.Component{
@@ -35,7 +36,7 @@ class MatchupList extends React.Component{
       // Need to create some kind of "Loading" component
       } else {
         return (
-          <h2>Loading...</h2>
+          <LoadingComp/>
         )
       }
     }
