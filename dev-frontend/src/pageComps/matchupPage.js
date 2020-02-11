@@ -2,6 +2,7 @@ var React = require('react')
 
 import MoneyBar from '../comps/moneyBar.js'
 import Modal from '../comps/modal.js'
+import LoadingComp from '../comps/loadingComp.js';
 
 class MatchupPage extends React.Component{
 
@@ -124,19 +125,19 @@ class MatchupPage extends React.Component{
                         style={{'flex':3}}>
                         <button
                             id='donateNow'
-                            className='hoverButton margin25'
+                            className='hoverButton margin25 color-background_primary'
                             onClick={this.handleOpen}>
                             Donate Now
                         </button>
                         <button
                             id='donateNow'
-                            className='hoverButton margin25'
+                            className='hoverButton margin25 color-background_primary'
                             onClick={this.handleOpen}>
                             Pledge to Donate
                         </button>
                         <button
                             id='donateNow'
-                            className='hoverButton margin25'
+                            className='hoverButton margin25 color-background_primary'
                             onClick={this.handleOpen}>
                             Share Matchup
                         </button>

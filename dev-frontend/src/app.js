@@ -155,6 +155,7 @@ class App extends React.Component{
                 <Switch>
                     <Route path='/matchup'>
                         <MatchupPage
+                            className="color-background_primary"
                             getPrimaryColor = {this.getPrimaryColor}
                             getCity = {this.getCity}
                             getName = {this.getName}
@@ -162,6 +163,7 @@ class App extends React.Component{
                     </Route>
                     <Route exact path='/'>
                         <HomePage
+                            className="color-background_primary"
                             getLogo = {this.getLogo}
                             getPrimaryColor = {this.getPrimaryColor}
                             getSecondaryColor = {this.getSecondaryColor}

@@ -2,6 +2,7 @@ var React = require('react')
 const QueryString = require('querystring')
 
 import MatchupList from '../comps/matchupList.js'
+import HeaderComp from '../comps/headerComp.js'
 
 class HomePage extends React.Component{
 
@@ -82,7 +83,17 @@ class HomePage extends React.Component{
                 id='appContents'
                 className='color-background_primary color-text_primary margin_horizontal4'
                 style={{overflowY:'hidden'}}>
-                <div>
+                <HeaderComp
+                  headerStyle={2}
+                />
+                <div
+                  id='logoArea'
+                  className='margin_vertical100'>
+                  <h1>Logo Here</h1>
+                </div>
+                <div
+                  id='searchArea'
+                  className='margin_vertical100'>
                   <label>City Filter</label>
                   <input
                       onChange = {this.handleCityFilter}
