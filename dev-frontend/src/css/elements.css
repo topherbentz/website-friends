@@ -57,6 +57,16 @@
   width: 100%;
 }
 
+.headerCompStyle{
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.headerButton:hover{
+  background: #FFC600;
+  cursor: pointer;
+}
+
 /*Mobile Custom Classes*/
 
 /*Animations*/

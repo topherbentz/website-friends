@@ -12,25 +12,26 @@
 /*Colors*/
 
 .color-dominant{
-  background: #E28128;
+  background: #BD2108;
 }
 .color-background_primary{
-  background: #FCFCE7;
+  background: white;
 }
 .color-background_secondary{
-  background: #1F8597;
+  background: black;
 }
 .color-text_primary{
-  color: #1F8597
+  color: black
 }
 .color-text_secondary{
-  color: #94CDB8
+  color: #FFC600
 }
 
 /*Tags*/
 
 body{
-  background: #FCFCE7;
+  background: white;
+  min-width: 360px;
 }
 
 h1{
@@ -61,7 +62,7 @@ p{
 }
 
 a{
-  color: #27407F;
+  color: black;
   font-size: 1.25rem;
   font-weight: 400;
   font-family: Lato, sans-serif;
