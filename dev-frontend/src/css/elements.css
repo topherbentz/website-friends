@@ -94,7 +94,7 @@
 }
 
 .searchBar, .filterDiv{
-  border: 1px var(--backgroundDark-color) solid;
+  border: 2px var(--backgroundDark-color) solid;
   padding: 10px 20px;;
 }
 
