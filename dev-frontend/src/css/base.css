@@ -11,20 +11,36 @@
 
 /*Colors*/
 
+:root{
+  --dominant-color:#BD2108;
+  --flair-color:#FFC600;
+  --backgroundLight-color: white;
+  --backgroundDark-color: black;
+}
+
 .color-dominant{
-  background: #BD2108;
+  background: var(--dominant-color);
 }
 .color-background_primary{
-  background: white;
+  background: var(--backgroundLight-color);
 }
 .color-background_secondary{
-  background: black;
+  background: var(--backgroundDark-color);
+}
+.color-background_flair{
+  background: var(--flair-color);
+}
+.color-text_dominant{
+  color: var(--dominant-color);
 }
 .color-text_primary{
-  color: black
+  color: var(--backgroundDark-color);
 }
 .color-text_secondary{
-  color: #FFC600
+  color: var(--backgroundLight-color);
+}
+.color-text_flair{
+  color: var(--flair-color);
 }
 
 /*Tags*/

@@ -3,6 +3,7 @@ const QueryString = require('querystring')
 
 import MatchupList from '../comps/matchupList.js'
 import HeaderComp from '../comps/headerComp.js'
+import Logo from '../../media/logo_transparent.png'
 
 class HomePage extends React.Component{
 
@@ -81,38 +82,96 @@ class HomePage extends React.Component{
         return(
             <div
                 id='appContents'
-                className='color-background_primary color-text_primary margin_horizontal4'
+                className='color-background_primary color-text_primary'
                 style={{overflowY:'hidden'}}>
-                <HeaderComp
-                  headerStyle={2}
-                />
                 <div
-                  id='logoArea'
-                  className='margin_vertical100'>
-                  <h1>Logo Here</h1>
-                </div>
-                <div
-                  id='searchArea'
-                  className='margin_vertical100'>
-                  <label>City Filter</label>
-                  <input
-                      onChange = {this.handleCityFilter}
-                  />
-                  <label>Sport Filter</label>
-                  <input
-                      onChange = {this.handleSportFilter}
+                  id='headerLayoutDiv'
+                  class='marginHeader'>
+                  <HeaderComp
+                    headerStyle={2}
                   />
                 </div>
-                <MatchupList
-                    matchups = {this.state.matchups}
-                    getLogo = {this.props.getLogo}
-                    getPrimaryColor = {this.props.getPrimaryColor}
-                    getSecondaryColor = {this.props.getSecondaryColor}
-                    getFontColor = {this.props.getFontColor}
-                    getCity = {this.props.getCity}
-                    getName = {this.props.getName}
-                />
-            </div>
+                <div
+                  id='bodyLayoutDiv'
+                  class='margin_horizontal4'>
+                  <div
+                    id='logoDiv'
+                    class='flex-column flex_center homeLogoDiv'>
+                    <img
+                      src={Logo}
+                      class='homeLogo'>
+                    </img>
+                  </div>
+                  <div
+                    id='searchDiv'
+                    className='flex-column flex_center'
+                    style={{'marginBottom':'100px'}}>
+                    <div 
+                      className='searchDiv flex-column'>
+                      <input 
+                        id='searchBar'
+                        type="text"
+                        placeholder="Search for a team.."
+                        maxLength="40"
+                        className='searchBar'/>
+                      <div
+                        id='filterBar'
+                        className='flex-row filterBar'>
+                        <div
+                        className='filterDiv'
+                          style={{'flex':1}}>
+                          <span>Filter</span>
+                        </div>
+                        <select
+                          id='cityFilter'
+                          className='filterDiv'
+                          style={{'flex':2}}
+                          onChange = {this.handleCityFilter}>
+                          <option 
+                            value="">
+                            City
+                          </option>
+                          <option
+                            value="TOR">
+                            Toronto
+                          </option>
+                          <option
+                            value="BOS">
+                            Boston
+                          </option>
+                        </select>
+                        <select
+                          id='sportFilter'
+                          className='filterDiv'
+                          style={{'flex':2}}
+                          onChange = {this.handleSportFilter}>
+                          <option 
+                            value="">
+                            Sport
+                          </option>
+                          <option
+                            value="Hockey">
+                            Hockey
+                          </option>
+                          <option
+                            value="Basketball">
+                            Basketball
+                          </option>            
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <MatchupList
+                      matchups = {this.state.matchups}
+                      getLogo = {this.props.getLogo}
+                      getPrimaryColor = {this.props.getPrimaryColor}
+                      getSecondaryColor = {this.props.getSecondaryColor}
+                      getFontColor = {this.props.getFontColor}
+                      getCity = {this.props.getCity}
+                      getName = {this.props.getName}
+                  />
+                </div>
+              </div>
         )
     }
 }
