@@ -60,6 +60,11 @@
   align-items: center;
   justify-content: center;
 }
+.teamRightMobileLogo{
+  width: 0;
+  height: 0;
+  display: none;
+}
 
 /*Forms/Text Fields*/
 .circle50 {
@@ -119,7 +124,8 @@
 }
 
 .searchDiv{
-  width: 960px;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .homeLogoDiv{
@@ -130,29 +136,31 @@
 .homeLogo{
   margin-bottom: 25px;
 }
+
 /* For Desktop (over 1024px width)*/
-
-.marginHeader{
-  margin-left:4%;
-  margin-right:4%;
-}
-
-.headerCompStyle{
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.searchDiv{
-  width: 960px;
-}
-
-.homeLogoDiv{
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.homeLogo{
-  margin-bottom: 25px;
+@media (min-width: 1024px){
+  .marginHeader{
+    margin-left:4%;
+    margin-right:4%;
+  }
+  .headerCompStyle{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .searchDiv{
+    max-width: 960px;
+  }
+  .homeLogoDiv{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .homeLogo{
+    margin-bottom: 25px;
+  }
+  .margin_horizontal4to2_tablet{
+    margin-left: 4%;
+    margin-right: 4%;
+  }
 }
 
 /* For Tablet and Desktop (minimum 768px width) */
@@ -164,11 +172,19 @@
       width: calc(982px/3);
       height: calc(662px/3);
   }
+  .flexHtoV_mobile{
+    display: flex;
+    flex-direction: row;
+  }
+  #matchupCard{
+    height: 300px;
+  }
 }
+
 /* For Tablet (maximum  1024px width, minimum 768px width) */
 @media (min-width: 768px) and (max-width: 1024px){
   .searchDiv{
-      width: 640px;
+      max-width: 640px;
   }
 }
 /* For Tablet and Mobile (maximum  1024px width) */
@@ -185,6 +201,15 @@
   .buttonArea{
       flex:4;
   }
+  .teamLogo{
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .margin_horizontal4to2_tablet{
+    margin-left: 2%;
+    margin-right: 2%;
+  }
 }
 
 /* For Mobile (under 768px width) */
@@ -199,7 +224,35 @@
       margin-bottom: 50px;
   }
   .searchDiv{
-      width: 320px;
+      max-width: 400px;
+  }
+  .flexHtoV_mobile{
+    display: flex;
+    flex-direction: column;
+  }
+  .dissapearMobile{
+    display: none;
+    flex: 0;
+    width: 0px;
+    height: 0px;;
+  }
+  .teamRightMobileLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .teamLeftMobileLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 

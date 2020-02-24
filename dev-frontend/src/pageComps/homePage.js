@@ -104,8 +104,7 @@ class HomePage extends React.Component{
                   </div>
                   <div
                     id='searchDiv'
-                    className='flex-column flex_center'
-                    style={{'marginBottom':'100px'}}>
+                    className='flex-column flex_center'>
                     <div 
                       className='searchDiv flex-column'>
                       <input 
