@@ -31,7 +31,7 @@ class MatchupPage extends React.Component{
         }
     }
 
-    getMatchupDetails = () =>{
+    getMatchupDetails = (id) =>{
         // This will need to be updated to get data from the server but for now this will be manually entered here
 
         //Load Matchup Data
@@ -52,9 +52,9 @@ class MatchupPage extends React.Component{
     componentDidMount(){
         // id:this.props.id -> What it will be once it's set up
         this.setState({
-            id:'1'
+            id:window.location.href.split('/').pop()
         })
-        this.getMatchupDetails();
+        this.getMatchupDetails(this.state.id);
     }
 
     getHeight = (amount, graphH) =>{

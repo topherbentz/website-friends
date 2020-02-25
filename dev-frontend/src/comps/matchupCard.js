@@ -1,12 +1,18 @@
 var React = require('react')
 
 class MatchupCard extends React.Component{
+    
+    routeToMatchup = () =>{
+        this.props.openLink(window.location.href+'matchup/'+this.props.matchup.id)
+    }
+
     render(){
         return(
             <button
                 id='matchupCard'
                 className = 'container flex_stretch flex_spaceCenter rcorner10 margin_vertical25 hoverButton color-background_primary'
-                style = {{width:'100%'}}>
+                style = {{width:'100%'}}
+                onClick= {this.routeToMatchup}>
                 <div
                     className='flexHtoV_tablet'
                     style={{height:'100%', width:'100%'}}>
@@ -43,7 +49,7 @@ class MatchupCard extends React.Component{
                         className = 'flex-row flex_spaceEvenly flex_center padding_horizontal2 padding_vertical25'
                         style = {{background:this.props.getPrimaryColor(this.props.matchup.teams.awayTeam, this.props.matchup.sport), flex:8}}>
                         <div
-                            id='teamRightMobileLogo'
+                            id='teamRightTabletLogo'
                             className='teamRightTabletLogo teamLogo_Radius'
                             style={{background:this.props.getSecondaryColor(this.props.matchup.teams.awayTeam, this.props.matchup.sport)}}>
                             {this.props.getLogo(this.props.matchup.teams.awayTeam, this.props.matchup.sport)}

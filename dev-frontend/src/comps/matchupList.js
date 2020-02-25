@@ -21,6 +21,7 @@ class MatchupList extends React.Component{
                   key={matchup.id}>
                   <MatchupCard
                     matchup = {matchup}
+                    openLink = {this.props.openLink}
                     getLogo = {this.props.getLogo}
                     getPrimaryColor = {this.props.getPrimaryColor}
                     getSecondaryColor = {this.props.getSecondaryColor}

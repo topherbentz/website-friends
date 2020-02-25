@@ -86,20 +86,20 @@ class HomePage extends React.Component{
                 style={{overflowY:'hidden'}}>
                 <div
                   id='headerLayoutDiv'
-                  class='marginHeader'>
+                  className='marginHeader'>
                   <HeaderComp
                     headerStyle={2}
                   />
                 </div>
                 <div
                   id='bodyLayoutDiv'
-                  class='margin_horizontal4'>
+                  className='margin_horizontal4'>
                   <div
                     id='logoDiv'
-                    class='flex-column flex_center homeLogoDiv'>
+                    className='flex-column flex_center homeLogoDiv'>
                     <img
                       src={Logo}
-                      class='homeLogo'>
+                      className='homeLogo'>
                     </img>
                   </div>
                   <div
@@ -161,6 +161,7 @@ class HomePage extends React.Component{
                     </div>
                   </div>
                   <MatchupList
+                      openLink = {this.props.openLink}
                       matchups = {this.state.matchups}
                       getLogo = {this.props.getLogo}
                       getPrimaryColor = {this.props.getPrimaryColor}
