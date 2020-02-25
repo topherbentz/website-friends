@@ -60,7 +60,7 @@
   align-items: center;
   justify-content: center;
 }
-.teamRightMobileLogo{
+.teamRightTabletLogo{
   width: 0;
   height: 0;
   display: none;
@@ -172,7 +172,7 @@
       width: calc(982px/3);
       height: calc(662px/3);
   }
-  .flexHtoV_mobile{
+  .flexHtoV_tablet{
     display: flex;
     flex-direction: row;
   }
@@ -210,6 +210,28 @@
     margin-left: 2%;
     margin-right: 2%;
   }
+  .flexHtoV_tablet{
+    display: flex;
+    flex-direction: column;
+  }
+  .teamRightTabletLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .teamLeftTabletLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* For Mobile (under 768px width) */
@@ -225,10 +247,6 @@
   }
   .searchDiv{
       max-width: 400px;
-  }
-  .flexHtoV_mobile{
-    display: flex;
-    flex-direction: column;
   }
   .dissapearMobile{
     display: none;
