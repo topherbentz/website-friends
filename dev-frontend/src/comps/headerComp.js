@@ -1,15 +1,18 @@
 var React = require('react')
+
+import Logo from '../../media/logo.png'
+
 class HeaderComp extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            headerStyle:1
+            headerStyle:false
         }
     }
 
     componentDidMount(){
         this.setState({
-            headerStyle:this.props.headerStyle
+            headerStyle:this.props.headerLogo
         })
     }
 
@@ -20,35 +23,38 @@ class HeaderComp extends React.Component{
         return(
             <div 
                 id='headerComp'>
-                {this.state.headerStyle != 3 &&
-                    <div
-                        className='color-background_secondary flex-row headerCompStyle'>
-                        <div 
-                            id='imageArea'
-                            style={{flex:2}}>
-                            {this.state.headerStyle == 1 &&
-                                //image stuff here
-                                <div></div>
-                            }
-                        </div>
-                        <div
-                            id='buttonArea'
-                            className='flex-row flex_spaceEvenly flex_center buttonArea'>
-                            <button
-                                className="padding10 margin10 rcorners10 headerButton color-text_secondary">
-                                About
-                            </button>
-                            <button
-                                className="padding10 margin10 rcorners10 headerButton color-text_secondary ">
-                                Contact
-                            </button>
-                            <button
-                                className="padding10 margin10 rcorners10 headerButton color-text_secondary">
-                                PayPal
-                            </button>
-                      </div>
+                <div
+                    className='color-background_secondary flex-row headerCompStyle'>
+                    <div 
+                        id='imageArea'
+                        style={{flex:2}}>
+                        {this.state.headerStyle == true &&
+                            <div>
+                                <img
+                                    id='headerLogo'
+                                    className='headerLogo margin10'
+                                    src={Logo}>
+                                </img>
+                            </div>
+                        }
                     </div>
-                }
+                    <div
+                        id='buttonArea'
+                        className='flex-row flex_spaceEvenly flex_center buttonArea'>
+                        <button
+                            className="padding10 margin10 rcorners10 headerButton color-text_secondary">
+                            About
+                        </button>
+                        <button
+                            className="padding10 margin10 rcorners10 headerButton color-text_secondary ">
+                            Contact
+                        </button>
+                        <button
+                            className="padding10 margin10 rcorners10 headerButton color-text_secondary">
+                            PayPal
+                        </button>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -2,7 +2,7 @@ var React = require('react')
 
 import MoneyBar from '../comps/moneyBar.js'
 import Modal from '../comps/modal.js'
-import LoadingComp from '../comps/loadingComp.js';
+import HeaderComp from '../comps/headerComp.js'
 
 class MatchupPage extends React.Component{
 
@@ -104,12 +104,14 @@ class MatchupPage extends React.Component{
         return(
             <div
                 id='appContents'
-                className='color-background_primary color-text_primary margin_horizontal4'
+                className='color-background_primary color-text_primary'
                 style={{overflowY:'hidden'}}>
+                <HeaderComp
+                    headerLogo={true}
+                />
                 <div
                     id='defaultMatchupDetails'
-                    className='flex-row margin margin_vertical100 flex_stretch'
-                    style={{'height':'600px'}}>
+                    className='flex-row margin margin_vertical100 flex_stretch margin_horizontal4'>
                     <MoneyBar
                         getCity = {this.props.getCity}
                         getName = {this.props.getName}

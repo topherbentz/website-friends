@@ -88,7 +88,7 @@ class HomePage extends React.Component{
                   id='headerLayoutDiv'
                   className='marginHeader'>
                   <HeaderComp
-                    headerStyle={2}
+                    headerLogo={false}
                   />
                 </div>
                 <div

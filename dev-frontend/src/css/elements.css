@@ -66,6 +66,11 @@
   display: none;
 }
 
+.headerLogo{
+  max-width:50px;
+  max-height:50px;
+}
+
 /*Forms/Text Fields*/
 .circle50 {
   height: 50px;
@@ -111,6 +116,10 @@
 #sportFilter, #cityFilter{
   border-left: 0px;
   padding: 10px;
+}
+
+#defaultMatchupDetails{
+  height: calc( 100vh - 270px );
 }
 
 .loadingContainer{
