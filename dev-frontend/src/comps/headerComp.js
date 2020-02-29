@@ -46,7 +46,7 @@ class HeaderComp extends React.Component{
                                 class="padding10 margin10 rcorners10 headerButton color-text_secondary">
                                 PayPal
                             </button>
-                      </div>
+                        </div>
                     </div>
                 }
             </div>
