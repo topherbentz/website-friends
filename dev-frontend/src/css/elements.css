@@ -10,6 +10,46 @@
   user-select: none; /* Standard */
 }
 
+.hoverButton:focus{
+  -moz-box-shadow:    0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 1.5px 7px 0 rgba(0, 0, 0, 0.38);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 1.5px 7px 0 rgba(0, 0, 0, 0.38);
+  box-shadow:         0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 1.5px 7px 0 rgba(0, 0, 0, 0.38);
+}
+
+.headerButton{
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  background: transparent
+}
+
+.headerButton:hover{
+  cursor: pointer;
+}
+
+.headerButton:before{
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  background: transparent;
+  border: 2px solid transparent;
+}
+
+.headerButton:focus{
+  outline: none;
+}
+
+.headerButton:focus:before{
+  animation: borderAnimateAfter 0.01s linear forwards;
+  width: 100%;
+  height: 100%;
+  border-bottom-color: var(--flair-color);
+}
+
 /*Images*/
 .teamLogo{
   height: 150px;
@@ -19,6 +59,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.teamRightTabletLogo{
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 /*Forms/Text Fields*/
@@ -34,6 +79,7 @@
 
 /*Custom Classes*/
 
+/* For Desktop, Tablet, and Mobile */
 .modal {
   position: fixed;
   top: 0;
@@ -52,6 +98,21 @@
   transform: translate(-50%,-50%);
 }
 
+.searchBar, .filterDiv{
+  border: 2px var(--backgroundDark-color) solid;
+  padding: 10px 20px;;
+}
+
+.filterDiv{
+  border-top: 0px;
+  text-align: center;
+}
+
+#sportFilter, #cityFilter{
+  border-left: 0px;
+  padding: 10px;
+}
+
 .loadingContainer{
   text-align: center;
   width: 100%;
@@ -62,12 +123,156 @@
   border-bottom-right-radius: 10px;
 }
 
-.headerButton:hover{
-  background: #FFC600;
-  cursor: pointer;
+.searchDiv{
+  width: 100%;
+  margin-bottom: 50px;
 }
 
-/*Mobile Custom Classes*/
+.homeLogoDiv{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.homeLogo{
+  margin-bottom: 25px;
+}
+
+/* For Desktop (over 1024px width)*/
+@media (min-width: 1024px){
+  .marginHeader{
+    margin-left:4%;
+    margin-right:4%;
+  }
+  .headerCompStyle{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .searchDiv{
+    max-width: 960px;
+  }
+  .homeLogoDiv{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .homeLogo{
+    margin-bottom: 25px;
+  }
+  .margin_horizontal4to2_tablet{
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+}
+
+/* For Tablet and Desktop (minimum 768px width) */
+@media (min-width: 768px){
+  .buttonArea{
+      flex:1;
+  }
+  .homeLogo{
+      width: calc(982px/3);
+      height: calc(662px/3);
+  }
+  .flexHtoV_tablet{
+    display: flex;
+    flex-direction: row;
+  }
+  #matchupCard{
+    height: 300px;
+  }
+}
+
+/* For Tablet (maximum  1024px width, minimum 768px width) */
+@media (min-width: 768px) and (max-width: 1024px){
+  .searchDiv{
+      max-width: 640px;
+  }
+}
+/* For Tablet and Mobile (maximum  1024px width) */
+
+@media (max-width: 1024px){
+  .marginHeader{
+      margin-left:0%;
+      margin-right:0%;
+  }
+  .headerCompStyle{
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+  }
+  .buttonArea{
+      flex:4;
+  }
+  .teamLogo{
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  .margin_horizontal4to2_tablet{
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .flexHtoV_tablet{
+    display: flex;
+    flex-direction: column;
+  }
+  .teamRightTabletLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .teamLeftTabletLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* For Mobile (under 768px width) */
+
+@media (max-width: 768px){
+  .homeLogo{
+      width: calc(982px/4);
+      height: calc(662px/4);
+  }
+  .homeLogoDiv{
+      margin-top: 50px;
+      margin-bottom: 50px;
+  }
+  .searchDiv{
+      max-width: 400px;
+  }
+  .dissapearMobile{
+    display: none;
+    flex: 0;
+    width: 0px;
+    height: 0px;;
+  }
+  .teamRightMobileLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .teamLeftMobileLogo{
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 /*Animations*/
 
@@ -129,6 +334,27 @@
   }
 }
 
+.headerButton:hover:before{
+  animation: borderAnimateBefore 0.25s linear forwards;
+}
+
+@keyframes borderAnimateBefore{
+  0%{
+    width: 0;
+    height: 100%;
+    border-bottom-color: var(--flair-color);
+  }
+  50%{
+    width: 50%;
+    height: 100%;
+    border-bottom-color: var(--flair-color);
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+    border-bottom-color: var(--flair-color);
+  }
+}
 /*Corners*/
 
 .teamLogo_Radius{

@@ -11,43 +11,59 @@
 
 /*Colors*/
 
+:root{
+  --dominant-color:#BD2108;
+  --flair-color:#FFC600;
+  --backgroundLight-color: white;
+  --backgroundDark-color: black;
+}
+
 .color-dominant{
-  background: #BD2108;
+  background: var(--dominant-color);
 }
 .color-background_primary{
-  background: white;
+  background: var(--backgroundLight-color);
 }
 .color-background_secondary{
-  background: black;
+  background: var(--backgroundDark-color);
+}
+.color-background_flair{
+  background: var(--flair-color);
+}
+.color-text_dominant{
+  color: var(--dominant-color);
 }
 .color-text_primary{
-  color: black
+  color: var(--backgroundDark-color);
 }
 .color-text_secondary{
-  color: #FFC600
+  color: var(--backgroundLight-color);
+}
+.color-text_flair{
+  color: var(--flair-color);
 }
 
 /*Tags*/
 
 body{
   background: white;
-  min-width: 360px;
+  min-width: 400px;
 }
 
 h1{
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 600;
     font-family: Raleway, sans-serif;
 }
 
 h2{
-    font-size: 1.5rem;
+    font-size: 2.25rem;
     font-weight: 500;
     font-family: Raleway, sans-serif;
 }
 
-p, q, input, textarea, button{
-    font-size: 1rem;
+p, q, input, textarea, button, span, select{
+    font-size: 1.5rem;
     font-weight: 400;
     font-family: Lato, sans-serif;
 }
@@ -83,16 +99,10 @@ a{
   opacity: 0.95; 
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1024px){
   h1{
     font-size: 4rem;
   }
-  h2{
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1000px){
   h2{
     font-size: 3rem;
   }
@@ -101,4 +111,7 @@ a{
     font-weight: 400;
     font-family: Lato, sans-serif;
   }
+}
+
+@media (max-width: 768px){
 }

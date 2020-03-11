@@ -31,20 +31,19 @@ class HeaderComp extends React.Component{
                                 <div></div>
                             }
                         </div>
-                        <div 
+                        <div
                             id='buttonArea'
-                            className='flex-row flex_spaceEvenly flex_center'
-                            style={{flex:1}}>
+                            class='flex-row flex_spaceEvenly flex_center buttonArea'>
                             <button
-                                className='padding10 margin10 color-background_primary rcorners10 headerButton'>
+                                class="padding10 margin10 rcorners10 headerButton color-text_secondary">
                                 About
                             </button>
                             <button
-                                className='padding10 margin10 color-background_primary rcorners10 headerButton'>
+                                class="padding10 margin10 rcorners10 headerButton color-text_secondary ">
                                 Contact
                             </button>
                             <button
-                                className='padding10 margin10 color-background_primary rcorners10 headerButton'>
+                                class="padding10 margin10 rcorners10 headerButton color-text_secondary">
                                 PayPal
                             </button>
                         </div>
